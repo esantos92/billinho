@@ -1,11 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  Nome: MyText
-  CNPJ: MyText
-  Tipo: MyText
+  nome: MyText
+  cnpj: MyText
+  tipo: MyText
 
 two:
-  Nome: MyText
-  CNPJ: MyText
-  Tipo: MyText
+  nome: MyText
+  cnpj: MyText
+  tipo: MyText

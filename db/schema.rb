@@ -37,9 +37,9 @@ ActiveRecord::Schema.define(version: 2021_12_14_142648) do
   end
 
   create_table "ies", force: :cascade do |t|
-    t.text "Nome"
-    t.text "CNPJ"
-    t.text "Tipo"
+    t.text "nome"
+    t.text "cnpj"
+    t.text "tipo"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

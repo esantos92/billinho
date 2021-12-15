@@ -4,7 +4,7 @@ class CreateFaturas < ActiveRecord::Migration[6.1]
       t.decimal :valor_fatura
       t.date :data_vencimento
       t.references :matricula, null:false, foreign_key: true
-      t.text :status
+      t.text :status, default: 'Aberta'
 
       t.timestamps
     end
