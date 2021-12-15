@@ -13,18 +13,18 @@ module Api
                 render json: {status: 'SUCCESS', message:'Aluno carregado', data:aluno},status: :ok
             end
 
-            #Acrescentar aluno
+            #Incluir aluno
             def create
 				aluno = Aluno.new(aluno_params)
 				if aluno.save
-					render json: {status: 'SUCCESS', message:'Dados do aluno salvo', data:aluno},status: :ok
+					render json: {status: 'SUCCESS', message:'Dados do aluno salvos', data:aluno},status: :ok
 				else
-					render json: {status: 'ERROR', message:'Os dados do aluno não foi salvo', data:aluno.erros},status: :unprocessable_entity
+					render json: {status: 'ERROR', message:'Os dados do aluno não foram salvos', data:aluno.errors},status: :unprocessable_entity
 				end
 			end
 
-            #Definição dos  parâmetros aceitos
             private
+            #Definição de  parâmetros aceitos
 			def aluno_params
 				params.permit(:nome, :cpf, :data_nasc, :celular, :genero, :forma_pagamento)
 			end

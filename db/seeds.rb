@@ -19,3 +19,9 @@ Aluno.create({
     genero: 'M',
     forma_pagamento: 'Cartão'
 })
+
+Ie.create({
+    nome: 'Univap',
+    cnpj: 44444444,
+    tipo: 'Universidade'
+})
