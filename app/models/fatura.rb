@@ -5,5 +5,5 @@ class Fatura < ApplicationRecord
     validates :data_vencimento, presence: true
     validates :matricula, presence: true
     validates :status, presence: true, inclusion: { in: %w(Aberta Atrasada Paga), 
-    message: "%{value} não é um tipo válido, utilize Aberta, Atrasada ou Paga como opções."}
+        message: "%{value} não é um tipo válido, utilize Aberta, Atrasada ou Paga como opções."}
 end
