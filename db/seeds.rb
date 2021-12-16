@@ -13,15 +13,24 @@
 #genero: Faker::Gender.short_binary_type
 #forma_pagamento: 'Boleto'
 
-Aluno.create({
-    nome: 'Everton Souza',
-    cpf: 3333333888888,
-    genero: 'M',
-    forma_pagamento: 'Cartão'
-})
+#Aluno.create({
+#nome: 'Everton Souza',
+#    cpf: 3333333888888,
+#    genero: 'M',
+#    forma_pagamento: 'Cartão'
+#})
+#
+#Ie.create({
+#    nome: 'Univap',
+#    cnpj: 44444444,
+#    tipo: 'Universidade'
+#})
 
-Ie.create({
-    nome: 'Univap',
-    cnpj: 44444444,
-    tipo: 'Universidade'
+Matricula.create({
+    valor_total: 2100.00,
+    quantidade_faturas: 10,
+    dia_vencimento: 5,
+    nome_curso: 'ADS',
+    ies_id: 1,
+    aluno_id:1
 })
