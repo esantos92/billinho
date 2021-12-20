@@ -10,4 +10,12 @@ class Matricula < ApplicationRecord
     validates :nome_curso, presence: true
     validates :ie_id, presence: true
     validates :aluno_id, presence: true
+
+    afiter_create :criar_fatura
+
+    private
+    def criar_fatura
+        CriarFatura.perform(self.valor_total)
+        
+    end    
 end
