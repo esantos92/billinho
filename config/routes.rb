@@ -16,4 +16,10 @@ Rails.application.routes.draw do
       resources :matriculas
     end
   end
+
+  namespace 'api' do
+    namespace 'v1' do
+      resources :faturas
+    end
+  end
 end
