@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2021_12_14_142648) do
     t.decimal "valor_fatura"
     t.date "data_vencimento"
     t.bigint "matricula_id", null: false
-    t.text "status"
+    t.text "status", default: "Aberta"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["matricula_id"], name: "index_faturas_on_matricula_id"
@@ -49,15 +49,15 @@ ActiveRecord::Schema.define(version: 2021_12_14_142648) do
     t.integer "quantidade_faturas"
     t.integer "dia_vencimento"
     t.text "nome_curso"
-    t.bigint "ies_id", null: false
+    t.bigint "ie_id", null: false
     t.bigint "aluno_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["aluno_id"], name: "index_matriculas_on_aluno_id"
-    t.index ["ies_id"], name: "index_matriculas_on_ies_id"
+    t.index ["ie_id"], name: "index_matriculas_on_ie_id"
   end
 
   add_foreign_key "faturas", "matriculas"
   add_foreign_key "matriculas", "alunos"
-  add_foreign_key "matriculas", "ies", column: "ies_id"
+  add_foreign_key "matriculas", "ies"
 end
