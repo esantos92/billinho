@@ -17,7 +17,7 @@ services:
     image: dpage/pgadmin4
     container_name: 'pgadmin-container-billinho'
     environment:
-      PGADMIN_DEFAULT_EMAIL: 'postgres'
+      PGADMIN_DEFAULT_EMAIL: 'postgres@email.com'
       PGADMIN_DEFAULT_PASSWORD: 'postgres'
     ports:
       - '15432:80'
