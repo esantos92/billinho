@@ -1,18 +1,18 @@
 module Api
     module V1
         class IesController < ApplicationController
-            #Listar Instituições de Ensino
+            #Listar Instituições de Ensino(GET)
             def index
                 ies = Ie.order('created_at DESC')
                 render json: {status: 'SUCCESS', message:'Instituições carregadas', data:ies},status: :ok
             end
 
-            #Listar instituição individualmente
+            #Listar aluno individualmente
             def show
                 ie = Ie.find(params[:id])
                 render json: {status: 'SUCCESS', message: 'Instituição carregada', data:ie},status: :ok
             end
-            #incluir Instituição
+            #incluir Instituiçãono
             def create
                 ie = Ie.new(ie_params)
                 if ie.save
