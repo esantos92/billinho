@@ -1,7 +1,7 @@
 module Api
     module V1
         class AlunosController < ApplicationController
-            #Listar Alunos(GET)
+            #Listar Alunos
             def index
                 alunos = Aluno.order('created_at DESC')
                 render json: {status: 'SUCCESS', message:'Alunos carregados', data:alunos},status: :ok
