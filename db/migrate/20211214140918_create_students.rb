@@ -4,7 +4,7 @@ class CreateStudents < ActiveRecord::Migration[6.1]
       t.text :name
       t.text :cpf
       t.date :birthday_date
-      t.integer :celphone
+      t.text :celphone
       t.text :gender
       t.text :payment_mode
 

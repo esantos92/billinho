@@ -25,7 +25,7 @@ module Api
             private
             #Definição de parâmetros aceitos
             def institution_params
-                params.permit(:name, :cnpj, :type)
+                params.permit(:name, :cnpj, :institution_type)
             end
         end
     end

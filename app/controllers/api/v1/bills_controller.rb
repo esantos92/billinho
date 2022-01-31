@@ -10,7 +10,7 @@ module Api
             #Listar fatura individualmente
             def show
                 bill = Fatura.find(params[:id])
-                render json: {status: 'SUCCESS', message:'Fatura carregada', data:bill}, status: :ok
+                render json: {status: 'SUCCESS', message:'Fatura carregada', data:fatura}, status: :ok
             end
         end
     end

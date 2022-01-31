@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2021_12_14_142648) do
     t.text "name"
     t.text "cpf"
     t.date "birthday_date"
-    t.integer "celphone"
+    t.text "celphone"
     t.text "gender"
     t.text "payment_mode "
     t.datetime "created_at", precision: 6, null: false
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2021_12_14_142648) do
   create_table "institutions", force: :cascade do |t|
     t.text "name"
     t.text "cnpj"
-    t.text "type"
+    t.text "institution_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2021_12_14_142648) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["student_id"], name: "index_matriculas_on_aluno_id"
-    t.index ["istitution_id"], name: "index_matriculas_on_ie_id"
+    t.index ["institution_id"], name: "index_matriculas_on_ie_id"
   end
 
   add_foreign_key "bills", "enrollments"
