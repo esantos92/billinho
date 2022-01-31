@@ -15,49 +15,49 @@ ActiveRecord::Schema.define(version: 2021_12_14_142648) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "alunos", force: :cascade do |t|
-    t.text "nome"
+  create_table "students", force: :cascade do |t|
+    t.text "name"
     t.text "cpf"
-    t.date "data_nasc"
-    t.integer "celular"
-    t.text "genero"
-    t.text "forma_pagamento"
+    t.date "birthday_date"
+    t.integer "celphone"
+    t.text "gender"
+    t.text "payment_mode "
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "faturas", force: :cascade do |t|
-    t.decimal "valor_fatura"
-    t.date "data_vencimento"
-    t.bigint "matricula_id", null: false
+  create_table "bills", force: :cascade do |t|
+    t.decimal "bill_value"
+    t.date "due_date"
+    t.bigint "enrollment_id", null: false
     t.text "status", default: "Aberta"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["matricula_id"], name: "index_faturas_on_matricula_id"
+    t.index ["enrollment_id"], name: "index_faturas_on_matricula_id"
   end
 
-  create_table "ies", force: :cascade do |t|
-    t.text "nome"
+  create_table "institutions", force: :cascade do |t|
+    t.text "name"
     t.text "cnpj"
-    t.text "tipo"
+    t.text "type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "matriculas", force: :cascade do |t|
-    t.decimal "valor_total"
-    t.integer "quantidade_faturas"
-    t.integer "dia_vencimento"
-    t.text "nome_curso"
-    t.bigint "ie_id", null: false
-    t.bigint "aluno_id", null: false
+  create_table "enrollments", force: :cascade do |t|
+    t.decimal "total_value"
+    t.integer "bills_amount"
+    t.integer "due_day"
+    t.text "course_name"
+    t.bigint "institution_id", null: false
+    t.bigint "student_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["aluno_id"], name: "index_matriculas_on_aluno_id"
-    t.index ["ie_id"], name: "index_matriculas_on_ie_id"
+    t.index ["student_id"], name: "index_matriculas_on_aluno_id"
+    t.index ["istitution_id"], name: "index_matriculas_on_ie_id"
   end
 
-  add_foreign_key "faturas", "matriculas"
-  add_foreign_key "matriculas", "alunos"
-  add_foreign_key "matriculas", "ies"
+  add_foreign_key "bills", "enrollments"
+  add_foreign_key "enrollments", "students"
+  add_foreign_key "enrollments", "institutions"
 end

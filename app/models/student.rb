@@ -1,10 +1,10 @@
-class Aluno < ApplicationRecord
-    has_many :matriculas
+class Student < ApplicationRecord
+    has_many :enrollments
 
-    validates :nome, presence: true, uniqueness: true
+    validates :name, presence: true, uniqueness: true
     validates :cpf, presence: true, uniqueness: true, numericality: { only_integer: true }
-    validates :genero, presence: true, inclusion: { in: %w(M F), 
+    validates :gender, presence: true, inclusion: { in: %w(M F), 
         message: "%{value} não é um tipo válido, utilize M ou F como opções."}
-    validates :forma_pagamento, presence: true, inclusion: { in: %w(Boleto Cartão), 
+    validates :payment_mode, presence: true, inclusion: { in: %w(Boleto Cartão), 
         message: "%{value} não é um tipo válido, utilize Boleto ou Cartão como opções."}
 end

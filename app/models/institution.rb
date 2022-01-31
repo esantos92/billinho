@@ -1,8 +1,8 @@
-class Ie < ApplicationRecord
-    has_many :matriculas
+class Institution < ApplicationRecord
+    has_many :enrollments
 
-    validates :nome, presence: true, uniqueness: true
+    validates :name, presence: true, uniqueness: true
     validates :cnpj, presence: true, uniqueness: true, numericality: { only_integer: true }
-    validates :tipo, inclusion: { in: %w(Universidade Escola Creche), 
+    validates :type, inclusion: { in: %w(Universidade Escola Creche), 
         message: "%{value} não é um tipo válido, utilize Universidade, Escola ou Creche como opções."}   
 end
