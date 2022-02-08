@@ -23,6 +23,22 @@ module Api
 				end
 			end
 
+            def update
+                student = Student.find(params[:id])
+                if student.update(student_params)
+                    render json: {status: 'SUCCESS', message:'Os dados do Aluno foram atualizados', data: student},status: :ok
+                else
+                    render json: {status: 'ERROR', message: 'Os dados do Aluno não foram salvos', data: student.errors},status: :unprocessable_entity
+                end
+
+            end
+
+            def destroy
+                student = Student.find(params[:id])
+                student.destroy
+                render json: {status: 'SUCCESS', message: 'As informações foram excluídas', data: student},status: :ok
+            end
+
             private
             #Definição de  parâmetros aceitos
 			def student_params
