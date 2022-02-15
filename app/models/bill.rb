@@ -1,4 +1,4 @@
-class Fatura < ApplicationRecord
+class Bill < ApplicationRecord
     belongs_to :enrollment
 
     validates :bill_value, presence: true

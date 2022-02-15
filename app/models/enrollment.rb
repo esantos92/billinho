@@ -1,4 +1,4 @@
-class Matricula < ApplicationRecord
+class Enrollment < ApplicationRecord
     has_many :bilss
     belongs_to :student
     belongs_to :institution
@@ -12,10 +12,28 @@ class Matricula < ApplicationRecord
     validates :student_id, presence: true
 
     after_create :create_bill
+    after_update :update_bill
+    before_destroy :destroy_bill
 
     private
     def create_bill
         CreateBill.perform(self)
         
-    end    
+    end
+    
+    def update_bill
+        bills = Bill.where(enrollment_id: Enrollment.ids)
+        bills.each do |bill|
+            bill.destroy
+        end
+
+        create_bill
+    end
+
+    def destroy_bill
+        bills = Bill.where(enrollment_id: Enrollment.ids) #corrigir id
+        bills.each do |bill|
+            bill.destroy
+        end
+    end
 end
