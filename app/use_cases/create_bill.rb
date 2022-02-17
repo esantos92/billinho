@@ -12,7 +12,7 @@ class CreateBill
 
     def perform
         calculate_bill_value
-        generate_bills
+        generate_bills (bills_amount)
     end
 
     private
@@ -31,7 +31,7 @@ class CreateBill
         end
     end
 
-    def generate_bills
+    def generate_bills (bills_amount)
         bill_date = date_first_bill(due_day)
         bills_amount.times do
             if bill_date.month.to_i != 2 && bill_date.day.to_i < due_day
