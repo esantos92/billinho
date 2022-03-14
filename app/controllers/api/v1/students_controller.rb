@@ -15,7 +15,7 @@ module Api
 
             #Incluir aluno
             def create
-				student = Student.new(student_params)
+				student = Student.new(student_params)               
 				if student.save
 					render json: {status: 'SUCCESS', message:'Dados do aluno salvos', data:student},status: :ok
 				else
@@ -42,7 +42,7 @@ module Api
             private
             #Definição de  parâmetros aceitos
 			def student_params
-				params.permit(:name, :cpf, :birthday_date, :celphone, :gender, :payment_mode)
+				params.permit(:name, :cpf, :birthday_date, :celphone, :gender, :cep, :number, :payment_mode)
 			end
 
 

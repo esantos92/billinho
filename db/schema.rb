@@ -21,6 +21,12 @@ ActiveRecord::Schema.define(version: 2021_12_14_142648) do
     t.date "birthday_date"
     t.text "celphone"
     t.text "gender"
+    t.text "cep"
+    t.text "number"
+    t.text "adress"
+    t.text "district"
+    t.text "city"
+    t.text "state"
     t.text "payment_mode"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
